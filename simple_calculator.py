@@ -1,0 +1,54 @@
+print('''
+ _____________________
+|  _________________  |
+| | Hi           0. | |
+| |_________________| |
+|  ___ ___ ___   ___  |
+| | 7 | 8 | 9 | | + | |
+| |___|___|___| |___| |
+| | 4 | 5 | 6 | | - | |
+| |___|___|___| |___| |
+| | 1 | 2 | 3 | | x | |
+| |___|___|___| |___| |
+| | . | 0 | = | | / | |
+| |___|___|___| |___| |
+|_____________________|''')
+
+def calculator(a,b,operation):
+    if operation == '+':
+        return a+b
+    elif operation == '/':
+        if b == 0:
+            print("Divison by Zero is not possible.")
+        else:
+            return a/b
+    elif operation == '-':
+        return a - b
+    elif operation == '*':
+        return a*b
+    else:
+        print("Invalid Operation")
+        raise ValueError("This operation is not defined for Calculator.")
+
+calculation = True
+while calculation:
+
+
+    f_number = float(input("Enter first number:\n"))
+    operation = input("*\n+\n-\n/\nChoose an operation:\n")
+    s_number = float(input("Enter second number:\n"))
+    
+    #Print the result of the calculator after each operation
+    print(f"Result: {calculator(f_number,s_number,operation)}")
+
+    restart = input("Type 'Yes' if you want to perform any other calculation else type 'No'.").lower()
+    if restart == "no":
+        calculation = False
+    elif restart == "yes":
+        calculation = True
+    else:
+        print("Invalid Input.Enter 'yes' or 'no'.")
+        calculation = False
+        
+# print(calculator(f_number,s_number,operation))
+#you have to keep the function inside the loop if you want to execute the code repeatedly
