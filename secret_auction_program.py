@@ -36,7 +36,7 @@ while ask :
         if value == maximum_bid:
             maximum_bidder = key
     
-    restart = input("Type Yes if you want to continue the bid else type No.\n").lower() 
+    restart = input("Type 'yes' if there are any other bidder else Type 'no'.\n").lower() 
     if restart == "no":
         ask = False
         print("\n"*100)
