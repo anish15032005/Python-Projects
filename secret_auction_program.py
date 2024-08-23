@@ -1,3 +1,7 @@
+#This program creates a secret auction game in which a player has to bid the price without informing another player in the game,
+#The Highest prize is revealed at the end of the game
+#It is also known as first-price sealed-bid auction(FPSBA) or blind auction
+
 gavel = '''
 
                          ___________
