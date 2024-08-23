@@ -31,23 +31,30 @@ def calculator(a,b,operation):
         raise ValueError("This operation is not defined for Calculator.")
 
 calculation = True
+f_number = None
 while calculation:
+    
+    if f_number is None:
+        f_number = float(input("Enter the first number:\n"))
 
 
-    f_number = float(input("Enter first number:\n"))
+    # f_number = float(input("Enter first number:\n"))
     operation = input("*\n+\n-\n/\nChoose an operation:\n")
     s_number = float(input("Enter second number:\n"))
     
     #Print the result of the calculator after each operation
-    print(f"Result: {calculator(f_number,s_number,operation)}")
+    result = calculator(a=f_number,b=s_number,operation=operation)
+    print(f"Result:{result}")
 
-    restart = input("Type 'Yes' if you want to perform any other calculation else type 'No'.").lower()
-    if restart == "no":
-        calculation = False
-    elif restart == "yes":
+    restart = input(f"Type 'y' if you want to continue the calculation with {result} else Type 'n'.").lower()
+    if restart == "y":
+        f_number = result
+        
+    elif restart == "n":
         calculation = True
+        f_number = None
     else:
-        print("Invalid Input.Enter 'yes' or 'no'.")
+        print("Invalid Input.Enter 'y' or 'n'.")
         calculation = False
         
 # print(calculator(f_number,s_number,operation))
