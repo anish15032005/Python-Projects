@@ -53,6 +53,7 @@ while calculation:
     elif restart == "n":
         calculation = True
         f_number = None
+        print("\n"*100)
     else:
         print("Invalid Input.Enter 'y' or 'n'.")
         calculation = False
