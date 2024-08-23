@@ -35,8 +35,10 @@ while ask :
     for key,value in name_and_bids.items():
         if value == maximum_bid:
             maximum_bidder = key
+    #You can also get the key with maximum value by
+    #max(name_and_bids,key = name_and_bids.get)
     
-    restart = input("Type 'yes' if there are any other bidder else Type 'no'.\n").lower() 
+    restart = input("Type 'yes' if there are any other bidders else Type 'no'.\n").lower() 
     if restart == "no":
         ask = False
         print("\n"*100)
