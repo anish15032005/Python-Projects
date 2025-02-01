@@ -3,6 +3,7 @@ from machine_data import resources, menu, coins
 
 machine_on = True
 customer_money = 0
+cash = 0
 #prompt user by asking what would they like(espresso, latte, cappuccino), don't forget to run the loop so that it asks every time until the machine is turned off
 
 while machine_on:
@@ -14,6 +15,8 @@ while machine_on:
     #print report
     elif user_input == "report":
         print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\n")
+    elif user_input == "cash":
+        print(f"Total cash: ${cash}")
     elif user_input == "espresso" or user_input == "latte" or user_input == "cappuccino":
         quarters = int(input("How many quarters? "))
         dimes = int(input("How many dimes? "))
@@ -44,6 +47,7 @@ while machine_on:
             resources["milk"] -= menu["espresso"]["milk"]
             resources["coffee"] -= menu["espresso"]["coffee"]
             left_amount = customer_money - menu["espresso"]["cost"]
+            cash += customer_money - left_amount
             
             
             print("Enjoy your espresso")
@@ -58,6 +62,7 @@ while machine_on:
             resources["milk"] -= menu["latte"]["milk"]
             resources["coffee"] -= menu["latte"]["coffee"]
             left_amount = customer_money - menu["latte"]["cost"]
+            cash += customer_money - left_amount
             print("Enjoy your latte")
             print(f"Here is the change: ${left_amount}")
     if user_input == "cappuccino":
@@ -70,6 +75,7 @@ while machine_on:
             resources["milk"] -= menu["cappuccino"]["milk"]
             resources["coffee"] -= menu["cappuccino"]["coffee"]
             left_amount = customer_money - menu["cappuccino"]["cost"]
+            cash += customer_money - left_amount
             print("Enjoy your cappuccino")
             print(f"Here is the change: ${left_amount}")
 
