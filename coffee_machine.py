@@ -7,16 +7,14 @@ cash = 0
 #prompt user by asking what would they like(espresso, latte, cappuccino), don't forget to run the loop so that it asks every time until the machine is turned off
 
 while machine_on:
-    user_input = input("What would you like?\n").lower()
+    user_input = input("What would you like?(latte,cappuccino,espresso)\n").lower()
     #turn off the machine by entering off to the prompt
     if user_input == "off":
         print("Machine is turned off")
         machine_on = False
     #print report
     elif user_input == "report":
-        print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\n")
-    elif user_input == "cash":
-        print(f"Total cash: ${cash}")
+        print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: ${cash}")
     elif user_input == "espresso" or user_input == "latte" or user_input == "cappuccino":
         quarters = int(input("How many quarters? "))
         dimes = int(input("How many dimes? "))
@@ -26,8 +24,8 @@ while machine_on:
         customer_money = quarters * coins["quarters"] + dimes * coins["dimes"] + nickels * coins["nickels"] + pennies * coins["pennies"]
 
     else:
-        print("Invalid Input!!!")
-        print("\n"*25)
+        print("\n"*40)
+        print("Invalid input")
 
         
 
@@ -50,7 +48,7 @@ while machine_on:
             cash += customer_money - left_amount
             
             
-            print("Enjoy your espresso")
+            print("Enjoy your espresso☕")
             print(f"Here is the change: ${left_amount}")
     if user_input == "latte":
         if resources["water"] < menu["latte"]["water"] or resources["coffee"] < menu["latte"]["coffee"] or resources["milk"] < menu["latte"]["milk"]: 
@@ -63,7 +61,7 @@ while machine_on:
             resources["coffee"] -= menu["latte"]["coffee"]
             left_amount = customer_money - menu["latte"]["cost"]
             cash += customer_money - left_amount
-            print("Enjoy your latte")
+            print("Enjoy your latte☕")
             print(f"Here is the change: ${left_amount}")
     if user_input == "cappuccino":
         if resources["water"] < menu["cappuccino"]["water"] or resources["coffee"] < menu["cappuccino"]["coffee"] or resources["milk"] < menu["cappuccino"]["milk"]: 
@@ -76,7 +74,7 @@ while machine_on:
             resources["coffee"] -= menu["cappuccino"]["coffee"]
             left_amount = customer_money - menu["cappuccino"]["cost"]
             cash += customer_money - left_amount
-            print("Enjoy your cappuccino")
+            print("Enjoy your cappuccino☕")
             print(f"Here is the change: ${left_amount}")
 
 
@@ -84,13 +82,5 @@ while machine_on:
 
 
 
-
-    #check if the transaction is successful or not
-
-
-
-
-
-    #make coffee
 
 
