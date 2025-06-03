@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+import time
 MY_LAT = 26.449923  # Your latitude
 MY_LONG = 80.331871  # Your longitude
 
@@ -40,6 +41,7 @@ def is_night():
 
 #send a notification if the ISS is overhead and it's night time
 while True:
+    time.sleep(60)  # Wait for 60 seconds before checking again
     if is_iss_overhead() and is_night():
         print("Look up! The ISS is overhead and it's night time.")
 
